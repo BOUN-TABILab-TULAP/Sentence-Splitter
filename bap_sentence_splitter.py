@@ -37,11 +37,11 @@ class LSTMTagger(nn.Module):
         tag_scores = F.log_softmax(tag_space, dim=1)
         return tag_scores
 
-model = LSTMTagger(100, 256, len(char_to_ix), len(tag_to_ix))
+model = LSTMTagger(300, 256, len(char_to_ix), len(tag_to_ix))
 loss_function = nn.NLLLoss()
 optimizer = optim.SGD(model.parameters(), lr = 0.1)
 
-model_save_name = '0903_sentencesplitter_emb100_hid256_epoch10.pt'
+model_save_name = '24082022_sentencesplitter_emb300_hid256_epoch20.pt'
 
 model.load_state_dict(torch.load(model_save_name))
 
